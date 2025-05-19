@@ -1,0 +1,113 @@
+.shadow-main {
+  position: relative;
+  z-index: 10;
+}
+
+.shadow-main:hover:after {
+  top: -0.5rem;
+}
+
+.shadow-main:after {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%;
+  height: 100%;
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+
+  background-color: rgba(226, 226, 226, 0.825);
+  z-index: -10;
+}
+
+.hover-animation {
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.hover-animation:hover::after {
+  scale: 3;
+}
+
+.hover-animation:hover {
+  color: #000000;
+}
+
+.hover-animation::after {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0%;
+  right: -120%;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  width: 10rem;
+  height: 10rem;
+  background-color: white;
+  transition: all 0.5s ease;
+  z-index: -1;
+}
+
+.hover-animation-blue {
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.hover-animation-white {
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.hover-animation-blue:hover::after {
+  scale: 3;
+}
+
+.hover-animation-white:hover::after {
+  scale: 4;
+}
+
+.hover-animation-white::after {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0%;
+  right: -120%;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  width: 10rem;
+  height: 10rem;
+  background-color: #1f93d1;
+  transition: all 0.5s ease;
+  z-index: -1;
+}
+
+.hover-animation-white:hover {
+  color: #ffffff;
+}
+
+.hover-animation-blue:hover {
+  color: #ffffff;
+}
+
+.hover-animation-blue::after {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0%;
+  right: -120%;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  width: 10rem;
+  height: 10rem;
+  background-color: #269bda;
+  transition: all 0.5s ease;
+  z-index: -1;
+}
