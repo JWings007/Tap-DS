@@ -11,66 +11,8 @@ import CareerCounsellingForm from "@/components/Form";
 import Preview from "@/components/Preview";
 import CTA from "@/components/CTA";
 import StillBox from "@/components/StillBox";
+import Why from "@/components/Why";
 // Custom hook for count-up animation
-const useCountUp = (
-  end: number,
-  duration: number = 3000,
-  prefix: string = "",
-  suffix: string = ""
-) => {
-  const [count, setCount] = useState(0);
-  const countRef = useRef(0);
-  const observerRef = useRef<IntersectionObserver | null>(null);
-  const elementRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    observerRef.current = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const startTime = performance.now();
-            const startValue = 0;
-            const endValue = end;
-
-            const updateCount = (currentTime: number) => {
-              const elapsedTime = currentTime - startTime;
-              const progress = Math.min(elapsedTime / duration, 1);
-
-              // Easing function for smooth animation
-              const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-              const currentCount = Math.floor(
-                startValue + (endValue - startValue) * easeOutQuart
-              );
-
-              setCount(currentCount);
-
-              if (progress < 1) {
-                requestAnimationFrame(updateCount);
-              }
-            };
-
-            requestAnimationFrame(updateCount);
-            observerRef.current?.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-
-    if (elementRef.current) {
-      observerRef.current.observe(elementRef.current);
-    }
-
-    return () => {
-      if (observerRef.current) {
-        observerRef.current.disconnect();
-      }
-    };
-  }, [end, duration]);
-
-  return { count, elementRef, prefix, suffix };
-};
-
 export default function Home() {
   const features = [
     {
@@ -143,25 +85,6 @@ export default function Home() {
   const cardsPerPage = 3;
   const totalPages = Math.ceil(features.length / cardsPerPage);
 
-  const { count: jobsCount, elementRef: jobsRef } = useCountUp(65000);
-  const { count: salaryCount, elementRef: salaryRef } = useCountUp(
-    12,
-    2000,
-    "₹"
-  );
-  const { count: hikeCount, elementRef: hikeRef } = useCountUp(
-    150,
-    2000,
-    "",
-    "%"
-  );
-  const { count: growthCount, elementRef: growthRef } = useCountUp(
-    30.7,
-    2000,
-    "$",
-    " Billion"
-  );
-
   useEffect(() => {
     if (!isHovered) {
       const interval = setInterval(() => {
@@ -176,11 +99,14 @@ export default function Home() {
     <div className="relative">
       <CTA />
       <Navbar />
-      <div className="w-full h-screen bg-cover bg-center flex items-center justify-center px-32">
+      <div className="w-full h-screen bg-cover bg-center flex items-center justify-center px-32 relative overflow-hidden">
+        <img src="/svg/main-blob-1.svg" alt="" className="absolute top-0 right-0 w-1/2 object-cover -z-1 blob-animate" />
+        <img src="/svg/main-blob-2.svg" alt="" className="absolute top-[20%] left-1/2 object-cover -z-1 blob-animate-2" />
+        {/* <img src="/svg/main-blob-3.svg" alt="" className="absolute bottom-0 right-[10%] object-cover -z-1 blob-animate-3" /> */}
         <div className="w-full h-full grid grid-cols-2 items-center justify-center gap-14">
           <div className="w-full h-full flex flex-col items-start justify-center gap-10">
             <div className="flex flex-col gap-4">
-              <h1 className="text-4xl font-semibold tracking-normal leading-14">
+              <h1 className="text-4xl font-semibold tracking-normal leading-11">
                 <span className="text-[#2091d0]">Become a Data Science</span>{" "}
                 Pro in 6 Months – Master AI, Analytics & AR-Driven Learning!
               </h1>
@@ -252,7 +178,7 @@ export default function Home() {
           <div className="flex animate-scroll gap-10 opacity-70 whitespace-nowrap">
             {/* First set of logos */}
             <div className="flex items-center gap-10 shrink-0">
-              <img src="/images/tm.png" alt="" className="h-10" />
+              <img src="/images/tm.png" alt="" className="h-10 mix-blend-multiply" />
               <img src="/images/Capgemini.png" alt="" className="h-10" />
               <img src="/images/cognizent.png" alt="" className="h-10" />
               <img src="/images/Glider.png" alt="" className="h-10" />
@@ -280,7 +206,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-
+      <Why />
       <style jsx>{`
         @keyframes scroll {
           0% {
@@ -300,47 +226,6 @@ export default function Home() {
           animation-play-state: paused;
         }
       `}</style>
-
-      <div className="overflow-hidden w-full h-screen flex items-center justify-center relative after:content-[''] after:absolute after:top-0 after:left-0 after:w-72 after:h-60 after:bg-gradient-to-r after:from-blue-500 after:to-blue-300 after:opacity-80 after:rotate-45 after:z-10 after:blur-2xl after:scale-150 after:animate-pulse after:duration-[4s] after:ease-in-out before:content-[''] before:absolute before:bottom-0 before:right-0 before:w-72 before:h-72 before:rounded-full before:scale-150 before:origin-bottom-right before:bg-gradient-to-r before:from-blue-500 before:to-blue-300 before:opacity-80 before:rotate-45 before:z-10 before:blur-2xl before:animate-pulse before:duration-[4s] before:ease-in-out">
-        <div className="p-16 flex flex-col items-center justify-center">
-          <h1 className="text-5xl font-medium pb-4 w-3/4 text-center">
-            Why
-            <span className="text-[#2091d0]"> Data Science? </span>Explosive
-            Growth, High Salaries & Unlimited Opportunities
-          </h1>
-          <p className="text-gray-500 text-lg w-3/4 text-center">
-            Data Science is the future. It's the key to unlocking the power of
-            data and making informed decisions. It's the key to unlocking the
-            power of data and making informed decisions.
-          </p>
-          <div className="grid grid-cols-2 content-center justify-items-center gap-16 py-8">
-            <div className="text-right w-fit" ref={salaryRef}>
-              <h1 className="text-6xl font-bold text-[#2091d0]">
-                {salaryCount} LPA
-              </h1>
-              <p className="text-gray-500">Average Salary</p>
-            </div>
-            <div className="text-right w-fit" ref={hikeRef}>
-              <h1 className="text-6xl font-bold text-[#2091d0]">
-                {hikeCount}%
-              </h1>
-              <p className="text-gray-500">Average Salary Hike</p>
-            </div>
-            <div className="text-right w-fit" ref={jobsRef}>
-              <h1 className="text-6xl font-bold text-[#2091d0]">
-                {jobsCount.toLocaleString()}+
-              </h1>
-              <p className="text-gray-500">Data Science Jobs in India</p>
-            </div>
-            <div className="text-right w-fit" ref={growthRef}>
-              <h1 className="text-6xl font-bold text-[#2091d0]">
-                {growthCount} Billion
-              </h1>
-              <p className="text-gray-500">Growth by 2024</p>
-            </div>
-          </div>
-        </div>
-      </div>
 
       <div className="w-full px-32 py-16 flex flex-col gap-10">
         <div>

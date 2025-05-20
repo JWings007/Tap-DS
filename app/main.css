@@ -111,3 +111,39 @@
   transition: all 0.5s ease;
   z-index: -1;
 }
+
+.blob-animate {
+  animation: blob-animation 40s ease infinite;
+}
+
+.blob-animate-2 {
+  animation: blob-animation-2 40s ease infinite;
+}
+
+.blob-animate-3 {
+  animation: blob-animation-3 40s ease infinite;
+}
+
+@keyframes blob-animation {
+  0% { transform: translateY(0) translateX(0) rotate(0deg) scale(1); }
+  25% { transform: translateY(30%) translateX(0%) rotate(90deg) scale(1); }
+  50% { transform: translateY(0%) translateX(-10%) rotate(180deg) scale(0.8); }
+  75% { transform: translateY(0%) translateX(20%) rotate(270deg) scale(0.8); }
+  100% { transform: translateY(0) translateX(0) rotate(360deg) scale(1); }
+}
+
+@keyframes blob-animation-2 {
+  0% { transform: translateY(0) translateX(0) scale(1) rotate(0deg); }
+  25% { transform: translateY(-10%) translateX(0%) scale(2) rotate(-90deg); }
+  50% { transform: translateY(0%) translateX(-50%) scale(2) rotate(-150deg); }
+  75% { transform: translateY(-10%) translateX(0%) scale(2) rotate(-270deg); }
+  100% { transform: translateY(0) translateX(0) scale(1) rotate(-360deg); }
+}
+
+@keyframes blob-animation-3 {
+  0% { transform: translateY(0) translateX(0) scale(1) rotate(0deg); }
+  25% { transform: translateY(-10%) translateX(0%) scale(2) rotate(-90deg); }
+  50% { transform: translateY(0%) translateX(-50%) scale(2) rotate(-150deg); }
+  75% { transform: translateY(-10%) translateX(0%) scale(2) rotate(-270deg); }
+}
+

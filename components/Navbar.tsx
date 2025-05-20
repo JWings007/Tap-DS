@@ -21,6 +21,7 @@ const pages: Page[] = [
   { label: 'Student Reviews', value: '/student-reviews' },
   { label: 'Hire From Us', value: '/hire-from-us' },
   { label: 'Contact Us', value: '/contact-us' },
+  {label: 'Sign Up', value: 'http://tai.thetapacademy.com/login'}
 ];
 
 // Temporary courses data until the import is fixed
@@ -66,7 +67,7 @@ const Navbar = () => {
                 {page.value !== '/course' ? (
                   <button
                     onClick={() => router.push(page.value)}
-                    className={`text-gray-700 hover:text-[#2091d0] px-3 py-2 text-sm font-medium transition-colors duration-200 ${
+                    className={`text-gray-700 hover:text-[#2091d0] px-3 py-2 text-sm font-medium transition-colors duration-200 ${page.label === 'Sign Up' ? 'bg-[#2091d0] text-white rounded-md hover:text-white cursor-pointer' : ''} ${
                       pathname === page.value ? 'text-[#2091d0]' : ''
                     }`}
                   >

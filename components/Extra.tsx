@@ -61,7 +61,8 @@ function Extra() {
           <p>Call Us</p>
         </button>
       </div>
-      <div className="grid grid-cols-2 gap-8 relative after:content-[''] after:absolute after:w-64 after:h-64 after:bg-[#2091d0] after:rounded-full after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:z-[-1] after:scale-200 after:origin-center after:opacity-50">
+      <div className="grid grid-cols-2 gap-8 relative">
+        <img src="/svg/main-blob-1.svg" alt="" className="absolute top-1/2 -translate-y-1/2 right-1/2 translate-x-1/2 w-56 object-cover -z-1 blob-animate-2" />
         <div className="grid grid-rows-1 items-center justify-center z-10">
           <div className="flex flex-col gap-4 items-center justify-center border border-gray-200 bg-white p-8 rounded-4xl shadow-md">
             <img
