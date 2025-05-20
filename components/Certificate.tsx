@@ -4,7 +4,7 @@ import React from "react";
 function Certificate() {
   return (
     <div className="py-16 px-32">
-      <h1 className="text-4xl font-semibold pb-4 text-center">
+      <h1 className="text-4xl font-medium pb-4 text-center">
         Tap Academy's{" "}
         <span className="text-[#2091d0]">Data Science Cerificate</span>
       </h1>
@@ -29,8 +29,8 @@ function Certificate() {
             <li className="flex items-center gap-2">
               <CheckBadgeIcon className="w-16 h-16 text-green-400" />
               <div>
-                <p className="font-bold">Official and Verified Certificate</p>
-                <p className="text-gray-500">
+                <p className="font-semibold">Official and Verified Certificate</p>
+                <p className="text-gray-500 text-sm">
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                   Voluptas, optio.
                 </p>
@@ -39,8 +39,8 @@ function Certificate() {
             <li className="flex items-center gap-2">
               <CheckBadgeIcon className="w-16 h-16 text-green-400" />
               <div>
-                <p className="font-bold">Easily Shareable</p>
-                <p className="text-gray-500">
+                <p className="font-semibold">Easily Shareable</p>
+                <p className="text-gray-500 text-sm">
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                   Voluptas, optio.
                 </p>
@@ -49,8 +49,8 @@ function Certificate() {
             <li className="flex items-center gap-2">
               <CheckBadgeIcon className="w-16 h-16 text-green-400" />
               <div>
-                <p className="font-bold">Enhances Credibility</p>
-                <p className="text-gray-500">
+                <p className="font-semibold">Enhances Credibility</p>
+                <p className="text-gray-500 text-sm">
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                   Voluptas, optio.
                 </p>

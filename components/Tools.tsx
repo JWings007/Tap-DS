@@ -86,14 +86,14 @@ function Tools() {
   return (
     <div className="py-16 px-32">
       <div className="text-center">
-        <h1 className="text-4xl font-semibold pb-4">
+        <h1 className="text-4xl font-medium pb-2">
           <span className="text-[#2091d0]">Tools</span> you'll learn
         </h1>
-        <p className="text-gray-500">
+        <p className="text-gray-500 text-base">
           Master these essential tools and technologies to become a proficient data scientist
         </p>
       </div>
-      <div className="grid grid-cols-4 gap-8 mt-12">
+      <div className="grid grid-cols-4 gap-8">
         {tools.map((tool, index) => (
           <div 
             key={tool.name} 

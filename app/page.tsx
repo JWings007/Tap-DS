@@ -12,6 +12,10 @@ import Preview from "@/components/Preview";
 import CTA from "@/components/CTA";
 import StillBox from "@/components/StillBox";
 import Why from "@/components/Why";
+import FAQ from "@/components/FAQ";
+import { CheckIcon } from "@heroicons/react/24/outline";
+import { CheckBadgeIcon } from "@heroicons/react/16/solid";
+import Footer from "@/components/Footer";
 // Custom hook for count-up animation
 export default function Home() {
   const features = [
@@ -102,11 +106,10 @@ export default function Home() {
       <div className="w-full h-screen bg-cover bg-center flex items-center justify-center px-32 relative overflow-hidden">
         <img src="/svg/main-blob-1.svg" alt="" className="absolute top-0 right-0 w-1/2 object-cover -z-1 blob-animate" />
         <img src="/svg/main-blob-2.svg" alt="" className="absolute top-[20%] left-1/2 object-cover -z-1 blob-animate-2" />
-        {/* <img src="/svg/main-blob-3.svg" alt="" className="absolute bottom-0 right-[10%] object-cover -z-1 blob-animate-3" /> */}
         <div className="w-full h-full grid grid-cols-2 items-center justify-center gap-14">
           <div className="w-full h-full flex flex-col items-start justify-center gap-10">
             <div className="flex flex-col gap-4">
-              <h1 className="text-4xl font-semibold tracking-normal leading-11">
+              <h1 className="text-4xl font-medium tracking-normal leading-10">
                 <span className="text-[#2091d0]">Become a Data Science</span>{" "}
                 Pro in 6 Months – Master AI, Analytics & AR-Driven Learning!
               </h1>
@@ -120,8 +123,8 @@ export default function Home() {
               <ul className="flex flex-col gap-4">
                 <li className="flex items-center gap-2">
                   <div className="flex items-center gap-6">
-                    <div className="min-w-3 h-3 bg-green-500 rounded-full flex items-center justify-center"></div>
-                    <p className="text-gray-500">
+                    <CheckBadgeIcon className="w-8 h-8 text-green-400" />
+                    <p className="text-gray-500 text-sm">
                       Generative AI & Hands-On Projects: Master Generative AI
                       and apply your knowledge through practical projects.
                     </p>
@@ -129,8 +132,8 @@ export default function Home() {
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="flex items-center gap-6">
-                    <div className="min-w-3 h-3 bg-green-500 rounded-full flex items-center justify-center"></div>
-                    <p className="text-gray-500">
+                    <CheckBadgeIcon className="w-8 h-8 text-green-400" />
+                    <p className="text-gray-500 text-sm">
                       Generative AI & Hands-On Projects: Master Generative AI
                       and apply your knowledge through practical projects.
                     </p>
@@ -138,8 +141,8 @@ export default function Home() {
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="flex items-center gap-6">
-                    <div className="min-w-3 h-3 bg-green-500 rounded-full flex items-center justify-center"></div>
-                    <p className="text-gray-500">
+                    <CheckBadgeIcon className="w-8 h-8 text-green-400" />
+                    <p className="text-gray-500 text-sm">
                       Generative AI & Hands-On Projects: Master Generative AI
                       and apply your knowledge through practical projects.
                     </p>
@@ -149,13 +152,13 @@ export default function Home() {
             </div>
             <div className="flex items-start gap-4 w-full">
               <a
-                className="bg-[#2091d0] text-white px-10 py-4 rounded-full hover-animation-blue"
+                className="bg-[#2091d0] text-white text-sm px-10 py-3 rounded-full hover-animation-blue"
                 href="/downloads/brochure.pdf"
                 download
               >
                 Download Brochure
               </a>
-              <button className="bg-white text-black px-10 py-4 rounded-full border border-[#2091d0] hover-animation-white">
+              <button className="bg-white text-black text-sm px-10 py-3 rounded-full border border-[#2091d0] hover-animation-white">
                 Get Free Career Guidance
               </button>
             </div>
@@ -166,8 +169,8 @@ export default function Home() {
         </div>
       </div>
       <div className="w-full flex flex-col items-center justify-center py-16">
-        <h1 className="text-4xl font-bold text-center pb-4">
-          Trusted by Learners & Industry Leaders
+        <h1 className="text-4xl font-medium text-center pb-4">
+          Trusted by <span className="text-[#2091d0]">Learners & Industry Leaders</span>
         </h1>
         <p className="text-center text-gray-500">
           Excel in data-driven careers with our certifications for Data Science,
@@ -229,12 +232,12 @@ export default function Home() {
 
       <div className="w-full px-32 py-16 flex flex-col gap-10">
         <div>
-          <h1 className="text-4xl font-semibold pb-4">
+          <h1 className="text-4xl font-medium pb-4">
             What Makes Our{" "}
             <span className="text-[#2091d0]">Data Science Program</span> Stand
             Out?
           </h1>
-          <p className="text-gray-500 w-1/2 text-lg">
+          <p className="text-gray-500 text-base">
             Gain an unbeatable edge with industry-aligned AR training, 1:1
             mentorship from FAANG experts, and a 100% placement guarantee. Our
             graduates land roles at 2X the industry average speed with hands-on
@@ -300,6 +303,8 @@ export default function Home() {
       <Preview />
       <Testimonials />
       <StillBox />
+      <FAQ />
+      <Footer />
     </div>
   );
 }

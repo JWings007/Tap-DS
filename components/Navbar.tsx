@@ -52,11 +52,11 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 bg-white shadow-sm z-50 w-full">
       <div className="px-32">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
             <a href="/" className="block">
-              <img src="/svg/logo.svg" alt="logo" className="w-40 h-10" />
+              <img src="/svg/logo.svg" alt="logo" className="w-28 h-7" />
             </a>
           </div>
 

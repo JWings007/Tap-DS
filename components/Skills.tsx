@@ -147,10 +147,10 @@ export const Skills: React.FC = () => {
     <section id="features" className="py-20 bg-white px-32">
       <div className="px-4 sm:px-6 lg:px-8 flex flex-col gap-8">
         <div className="text-center">
-          <h2 className="text-3xl md:text-4xl font-semibold mb-4">
+          <h2 className="text-4xl font-medium mb-4">
             What You'll <span className="text-[#2091d0]">Learn</span>
           </h2>
-          <p className="max-w-2xl mx-auto text-lg text-slate-600">
+          <p className="max-w-2xl mx-auto text-base text-slate-600">
             Master these in-demand skills and transform your career with our
             comprehensive curriculum
           </p>
@@ -178,11 +178,11 @@ export const Skills: React.FC = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {visibleFeatures.map((feature, index) => (
             <div
               key={index}
-              className={`bg-white cursor-pointer rounded-xl p-8 border border-slate-100 hover:shadow-md transition-all duration-300 transform relative shadow-main ${
+              className={`bg-white cursor-pointer rounded-xl px-5 py-4 border border-slate-200 hover:shadow-md transition-all duration-300 transform relative shadow-main ${
                 showAll ? 'opacity-100 translate-y-0' : 'opacity-100 translate-y-0'
               }`}
             >
@@ -193,10 +193,10 @@ export const Skills: React.FC = () => {
                 >
                   <feature.icon className={`h-6 w-6 ${feature.color}`} />
                 </div>
-                <h3 className="text-xl font-semibold text-slate-800 mb-3">
+                <h3 className="text-lg font-semibold text-slate-800 mb-3">
                   {feature.title}
                 </h3>
-                <p className="text-slate-600 mb-4">{feature.description}</p>
+                <p className="text-slate-600 mb-4 text-sm">{feature.description}</p>
                 <ul className="space-y-2">
                   {feature.skills.map((skill, skillIndex) => (
                     <li
@@ -215,10 +215,10 @@ export const Skills: React.FC = () => {
           ))}
         </div>
 
-        <div className="mt-16 text-center">
+        <div className="mt-8 text-center">
           <button
             onClick={() => setShowAll(!showAll)}
-            className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full cursor-pointer text-white bg-[#2091d0] hover:bg-[#208dd0] focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-300 transform hover:scale-105"
+            className="inline-flex items-center px-6 py-2 border border-transparent text-sm rounded-full cursor-pointer text-white bg-[#2091d0] hover:bg-[#208dd0] focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-300 transform hover:scale-105"
           >
             {showAll ? 'Show Less' : 'View More'}
             <svg
