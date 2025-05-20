@@ -104,7 +104,7 @@ function Tools() {
             }}
           >
             <div className="w-16 h-16 relative mb-4">
-              <img src={tool.image} alt={tool.name} className="w-full h-full object-contain group-hover:scale-125 transition-transform duration-300" />
+              <img src={tool.image} alt={tool.name} className="w-full h-full object-contain group-hover:scale-125 group-hover:drop-shadow-lg transition-all duration-300" />
             </div>
             <h3 className="text-lg font-semibold text-gray-800">{tool.name}</h3>
           </div>
