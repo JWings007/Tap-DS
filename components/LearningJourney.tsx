@@ -23,7 +23,7 @@ const LearningJourneyRoadmap = () => {
       ],
       icon: <CodeBracketIcon className="size-6" />,
       date: "Month 1-2",
-      image: '/svg/python-svgrepo-com.svg'
+      image: "/svg/python-svgrepo-com.svg",
     },
     {
       id: 2,
@@ -34,7 +34,7 @@ const LearningJourneyRoadmap = () => {
       ],
       icon: <ServerIcon className="size-6" />,
       date: "Month 3-4",
-      image: '/svg/icons8-pandas.svg'
+      image: "/svg/icons8-pandas.svg",
     },
     {
       id: 3,
@@ -45,7 +45,7 @@ const LearningJourneyRoadmap = () => {
       ],
       icon: <PresentationChartBarIcon className="size-6" />,
       date: "Month 5-6",
-      image: '/svg/icons8-numpy.svg'
+      image: "/svg/icons8-numpy.svg",
     },
     {
       id: 4,
@@ -55,7 +55,7 @@ const LearningJourneyRoadmap = () => {
         "Feature engineering, model tuning, and evaluation",
       ],
       icon: <ChartPieIcon className="size-6" />,
-      image: '/svg/scikit-learn.svg'
+      image: "/svg/scikit-learn.svg",
     },
     {
       id: 5,
@@ -65,7 +65,7 @@ const LearningJourneyRoadmap = () => {
         "Solve domain-specific problems (Finance, Healthcare, E-commerce, etc.)",
       ],
       icon: <RocketLaunchIcon className="size-6" />,
-      image: '/svg/tableau-software.svg'
+      image: "/svg/tableau-software.svg",
     },
     {
       id: 6,
@@ -75,7 +75,7 @@ const LearningJourneyRoadmap = () => {
         "Introduction to AWS/GCP for model hosting",
       ],
       icon: <CloudIcon className="size-6" />,
-      image: '/svg/icons8-mysql-logo.svg'
+      image: "/svg/icons8-mysql-logo.svg",
     },
     {
       id: 7,
@@ -85,7 +85,7 @@ const LearningJourneyRoadmap = () => {
         "Introduction to prompt engineering and RAG",
       ],
       icon: <SparklesIcon className="size-6" />,
-      image: '/svg/powerbi.svg'
+      image: "/svg/powerbi.svg",
     },
     {
       id: 8,
@@ -96,7 +96,7 @@ const LearningJourneyRoadmap = () => {
       ],
       icon: <TrophyIcon className="size-6" />,
       date: "Month 9-10",
-      image: '/svg/icons8-pytorch.svg'
+      image: "/svg/icons8-pytorch.svg",
     },
     {
       id: 9,
@@ -107,7 +107,7 @@ const LearningJourneyRoadmap = () => {
       ],
       icon: <UserGroupIcon className="size-6" />,
       date: "Month 11-12",
-      image: '/svg/icons8-bard.svg'
+      image: "/svg/icons8-bard.svg",
     },
   ];
 
@@ -142,21 +142,29 @@ const LearningJourneyRoadmap = () => {
   }, []);
 
   return (
-    <div className="py-16 relative overflow-hidden">
-              <img
-          src="/svg/main-blob-2.svg"
-          alt=""
-          className="absolute top-[10%] right-[10%] w-56 object-cover -z-1 blob-animate-2"
-        />
+    <div className="py-8 lg:py-16 relative overflow-hidden">
+      <img
+        src="/svg/main-blob-2.svg"
+        alt=""
+        className="absolute top-[10%] right-[10%] w-56 object-cover -z-1 blob-animate-2"
+      />
 
-        <img src="/svg/main-blob-3.svg" alt="" className="absolute top-[40%] left-[10%] w-56 object-cover -z-1 blob-animate-2" />
-        <img src="/svg/blob6.svg" alt="" className="absolute bottom-[7%] scale-90 right-[10%] w-56 object-cover -z-1 blob-animate-2" />
+      <img
+        src="/svg/main-blob-3.svg"
+        alt=""
+        className="absolute top-[40%] left-[10%] w-56 object-cover -z-1 blob-animate-2"
+      />
+      <img
+        src="/svg/blob6.svg"
+        alt=""
+        className="absolute bottom-[7%] scale-90 right-[10%] w-56 object-cover -z-1 blob-animate-2"
+      />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-medium pb-4">
+          <h1 className="text-3xl lg:text-4xl font-medium pb-4">
             Learning <span className="text-[#2091d0]">Journey</span>
           </h1>
-          <p className="text-base text-gray-600 max-w-3xl mx-auto">
+          <p className="text-sm lg:text-base text-gray-600 max-w-3xl mx-auto">
             Your roadmap to becoming a proficient data scientist - carefully
             structured to build your skills step by step
           </p>
@@ -179,7 +187,11 @@ const LearningJourneyRoadmap = () => {
                 }`}
               >
                 <div className="bg-white cursor-pointer rounded-4xl shadow py-6 px-8 transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1 border-2 border-gray-200 hover:border-[#94d3f6] hover:shadow-[#2092d059]">
-                <img src={step.image} alt="" className="w-16 absolute -bottom-[15%] right-0" />
+                  <img
+                    src={step.image}
+                    alt=""
+                    className="w-16 absolute -bottom-[15%] right-0"
+                  />
                   <div className="flex items-center justify-between mb-3">
                     <div className="border border-[#2091d0] bg-blue-200 rounded-xl w-12 h-12 flex items-center justify-center font-bold mr-3">
                       {step.icon}
@@ -191,7 +203,9 @@ const LearningJourneyRoadmap = () => {
                   </h3>
                   <ul className="list-disc list-inside text-gray-600 space-y-2">
                     {step.description.map((item, idx) => (
-                      <li key={idx} className="text-sm text-gray-600">{item}</li>
+                      <li key={idx} className="text-sm text-gray-600">
+                        {item}
+                      </li>
                     ))}
                   </ul>
                 </div>

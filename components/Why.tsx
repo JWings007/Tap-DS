@@ -140,7 +140,7 @@ function Why() {
     if (isAutoPlaying) {
       interval = setInterval(() => {
         setCurrentIndex((prev) => (prev + 1) % cards.length);
-      }, 5000);
+      }, 3000);
     }
     return () => clearInterval(interval);
   }, [isAutoPlaying, cards.length]);
@@ -170,21 +170,21 @@ function Why() {
   ));
 
   return (
-    <div className="overflow-hidden w-full flex flex-col items-center justify-center relative py-16">
-      <div className="flex flex-col px-32">
-        <h1 className="text-4xl font-medium pb-4 w-3/4 leading-14">
+    <div className="overflow-hidden w-full flex flex-col items-center justify-center relative py-5 lg:py-16">
+      <div className="flex flex-col px-8 lg:px-32">
+        <h1 className="text-3xl lg:text-4xl font-medium pb-4 lg:w-3/4 lg:leading-14 leading-10">
           Why
           <span className="text-[#2091d0]"> Data Science? </span>Explosive
           Growth, High Salaries & Unlimited Opportunities
         </h1>
-        <p className="text-gray-500 text-base w-3/4">
+        <p className="text-gray-500 text-base lg:w-3/4">
           Data Science is the future. It's the key to unlocking the power of
           data and making informed decisions. It's the key to unlocking the
           power of data and making informed decisions.
         </p>
       </div>
 
-      <div className="relative py-16 px-32 w-full">
+      <div className="relative py-16 px-8 lg:px-32 w-full">
         <div className="">
           {/* Carousel container with cards */}
           <div
@@ -194,7 +194,7 @@ function Why() {
           >
             {/* Display cards twice to create a smooth infinite loop effect */}
             {cards.map((card, i) => (
-              <div key={i} className="w-[28rem] pr-4 flex-shrink-0">
+              <div key={i} className="w-[20rem] lg:w-[28rem] pr-4 flex-shrink-0">
                 <div
                   className={`relative text-right w-full flex flex-col gap-48 items-start justify-between border rounded-3xl px-10 py-14 group overflow-hidden cursor-pointer shadow-lg ${
                     i === 0
@@ -210,13 +210,13 @@ function Why() {
                   <img
                     src={card.blob}
                     alt=""
-                    className="absolute w-3/4 rotate-[30deg] bottom-[-30%] left-[-30%] group-hover:scale-[5] transition-all duration-600 -z-1"
+                    className="absolute w-3/4 rotate-[30deg] bottom-[-20%] lg:bottom-[-30%] left-[-30%] group-hover:scale-[5] transition-all duration-600 -z-1"
                   />
                   <div className="flex flex-col gap-8 items-start">
-                    <img src={card.refImage} alt="" className="h-5" />
+                    <img src={card.refImage} alt="" className="h-3 lg:h-5" />
                     <div className="flex flex-col items-start">
                       <h1
-                        className={`text-7xl font-semibold ${
+                        className={`text-5xl lg:text-7xl font-semibold ${
                           i === 0
                             ? "text-[#0b1721]"
                             : i === 1
@@ -228,7 +228,7 @@ function Why() {
                       >
                         {card.value}
                       </h1>
-                      <p className="text-gray-500 group-hover:text-white transition-all duration-500">
+                      <p className="text-gray-500 group-hover:text-white transition-all duration-500 text-sm lg:text-base">
                         {card.text}
                       </p>
                     </div>

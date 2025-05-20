@@ -2,8 +2,7 @@
 import { MouseEvent, useState } from 'react';
 import Image from 'next/image';
 import { useRouter, usePathname } from 'next/navigation';
-import { ArrowDownIcon } from '@heroicons/react/24/outline';
-import { ArrowUpIcon } from '@heroicons/react/24/outline';
+import { ArrowUpIcon, ArrowDownIcon, ChevronUpIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
 
 interface Course {
   _id: string;
@@ -51,7 +50,7 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 bg-white shadow-sm z-50 w-full">
-      <div className="px-32">
+      <div className="px-4 lg:px-32">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
@@ -175,7 +174,7 @@ const Navbar = () => {
                       }`}
                     >
                       {page.label}
-                      {courseOpen ? <ArrowUpIcon /> : <ArrowDownIcon />}
+                      {courseOpen ? <ChevronUpIcon className="w-4 h-4" /> : <ChevronDownIcon className="w-4 h-4" />}
                     </button>
                     {courseOpen && (
                       <div className="pl-4">

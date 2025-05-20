@@ -35,11 +35,11 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              <li><Link href="/about" className="text-gray-300 hover:text-white">About Us</Link></li>
-              <li><Link href="/courses" className="text-gray-300 hover:text-white">Courses</Link></li>
-              <li><Link href="/careers" className="text-gray-300 hover:text-white">Careers</Link></li>
-              <li><Link href="/blog" className="text-gray-300 hover:text-white">Blog</Link></li>
-              <li><Link href="/contact" className="text-gray-300 hover:text-white">Contact</Link></li>
+              <li><Link href="/about" className="text-gray-300 hover:text-white text-sm lg:text-base">About Us</Link></li>
+              <li><Link href="/courses" className="text-gray-300 hover:text-white text-sm lg:text-base">Courses</Link></li>
+              <li><Link href="/careers" className="text-gray-300 hover:text-white text-sm lg:text-base">Careers</Link></li>
+              <li><Link href="/blog" className="text-gray-300 hover:text-white text-sm lg:text-base">Blog</Link></li>
+              <li><Link href="/contact" className="text-gray-300 hover:text-white text-sm lg:text-base">Contact</Link></li>
             </ul>
           </div>
 
@@ -47,11 +47,11 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Our Courses</h4>
             <ul className="space-y-2">
-              <li><Link href="/courses/data-science" className="text-gray-300 hover:text-white">Data Science</Link></li>
-              <li><Link href="/courses/web-development" className="text-gray-300 hover:text-white">Web Development</Link></li>
-              <li><Link href="/courses/mobile-development" className="text-gray-300 hover:text-white">Mobile Development</Link></li>
-              <li><Link href="/courses/ui-ux-design" className="text-gray-300 hover:text-white">UI/UX Design</Link></li>
-              <li><Link href="/courses/digital-marketing" className="text-gray-300 hover:text-white">Digital Marketing</Link></li>
+              <li><Link href="/courses/data-science" className="text-gray-300 hover:text-white text-sm lg:text-base">Data Science</Link></li>
+              <li><Link href="/courses/web-development" className="text-gray-300 hover:text-white text-sm lg:text-base">Web Development</Link></li>
+              <li><Link href="/courses/mobile-development" className="text-gray-300 hover:text-white text-sm lg:text-base">Mobile Development</Link></li>
+              <li><Link href="/courses/ui-ux-design" className="text-gray-300 hover:text-white text-sm lg:text-base">UI/UX Design</Link></li>
+              <li><Link href="/courses/digital-marketing" className="text-gray-300 hover:text-white text-sm lg:text-base">Digital Marketing</Link></li>
             </ul>
           </div>
 
@@ -64,19 +64,19 @@ const Footer = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
                 </svg>
-                <span className="text-gray-300">123 Education Street, Tech City</span>
+                <span className="text-gray-300 text-sm lg:text-base">123 Education Street, Tech City</span>
               </li>
               <li className="flex items-center space-x-2">
                 <svg className="h-5 w-5 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                 </svg>
-                <span className="text-gray-300">info@tapacademy.com</span>
+                <span className="text-gray-300 text-sm lg:text-base">info@tapacademy.com</span>
               </li>
               <li className="flex items-center space-x-2">
                 <svg className="h-5 w-5 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
                 </svg>
-                <span className="text-gray-300">+1 (555) 123-4567</span>
+                <span className="text-gray-300 text-sm lg:text-base">+1 (555) 123-4567</span>
               </li>
             </ul>
           </div>
@@ -89,9 +89,9 @@ const Footer = () => {
               © {new Date().getFullYear()} Tap Academy. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link href="/privacy" className="text-gray-300 hover:text-white text-sm">Privacy Policy</Link>
-              <Link href="/terms" className="text-gray-300 hover:text-white text-sm">Terms of Service</Link>
-              <Link href="/sitemap" className="text-gray-300 hover:text-white text-sm">Sitemap</Link>
+              <Link href="/privacy" className="text-gray-300 hover:text-white text-sm lg:text-base">Privacy Policy</Link>
+              <Link href="/terms" className="text-gray-300 hover:text-white text-sm lg:text-base">Terms of Service</Link>
+              <Link href="/sitemap" className="text-gray-300 hover:text-white text-sm lg:text-base">Sitemap</Link>
             </div>
           </div>
         </div>

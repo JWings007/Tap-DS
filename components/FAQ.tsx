@@ -97,15 +97,15 @@ function FAQ() {
   }, [expandedIndex]);
 
   return (
-    <div className="py-12 px-32 overflow-hidden">
-      <div className="flex justify-between gap-4 w-full">
+    <div className="py-8 lg:py-12 px-8 lg:px-32 overflow-hidden">
+      <div className="flex flex-col lg:flex-row justify-between gap-4 w-full">
         <div>
-          <h2 className="text-4xl font-bold text-black">Frequently</h2>
+          <h2 className="text-2xl lg:text-4xl font-bold text-black">Frequently</h2>
           <h2 className="text-4xl font-bold text-black">
             Asked <span className="text-[#2091d0]">Questions</span>
           </h2>
         </div>
-        <div className="w-1/2 flex flex-col items-start gap-4">
+        <div className="w-full lg:w-1/2 flex flex-col items-start gap-4">
           <p className="text-sm tracking-wide">
             Find answers to common questions lorem ipsum dolor sit amet. about
             our courses and how we can help you to achive your goals.

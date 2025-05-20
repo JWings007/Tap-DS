@@ -103,13 +103,13 @@ export default function Home() {
     <div className="relative">
       <CTA />
       <Navbar />
-      <div className="w-full h-screen bg-cover bg-center flex items-center justify-center px-32 relative overflow-hidden">
+      <div className="w-full lg:h-screen bg-cover bg-center flex items-center justify-center px-8 lg:px-32 relative overflow-hidden pt-20 lg:pt-0">
         <img src="/svg/main-blob-1.svg" alt="" className="absolute top-0 right-0 w-1/2 object-cover -z-1 blob-animate" />
         <img src="/svg/main-blob-2.svg" alt="" className="absolute top-[20%] left-1/2 object-cover -z-1 blob-animate-2" />
-        <div className="w-full h-full grid grid-cols-2 items-center justify-center gap-14">
+        <div className="w-full h-full grid grid-cols-1 lg:grid-cols-2 items-center justify-center gap-14">
           <div className="w-full h-full flex flex-col items-start justify-center gap-10">
             <div className="flex flex-col gap-4">
-              <h1 className="text-4xl font-medium tracking-normal leading-10">
+              <h1 className="text-3xl lg:text-4xl font-medium tracking-normal leading-10">
                 <span className="text-[#2091d0]">Become a Data Science</span>{" "}
                 Pro in 6 Months – Master AI, Analytics & AR-Driven Learning!
               </h1>
@@ -150,7 +150,7 @@ export default function Home() {
                 </li>
               </ul>
             </div>
-            <div className="flex items-start gap-4 w-full">
+            <div className="flex lg:items-start gap-4 w-full lg:flex-row flex-col justify-center lg:justify-start items-center">
               <a
                 className="bg-[#2091d0] text-white text-sm px-10 py-3 rounded-full hover-animation-blue"
                 href="/downloads/brochure.pdf"
@@ -169,10 +169,10 @@ export default function Home() {
         </div>
       </div>
       <div className="w-full flex flex-col items-center justify-center py-16">
-        <h1 className="text-4xl font-medium text-center pb-4">
+        <h1 className="text-3xl lg:text-4xl font-medium text-center pb-4">
           Trusted by <span className="text-[#2091d0]">Learners & Industry Leaders</span>
         </h1>
-        <p className="text-center text-gray-500">
+        <p className="text-center text-gray-500 text-sm lg:text-base px-8 lg:px-0">
           Excel in data-driven careers with our certifications for Data Science,
           boasting a high rate of successful student placements. Get hired by
           top companies.
@@ -180,31 +180,31 @@ export default function Home() {
         <div className="w-full overflow-hidden py-16 relative">
           <div className="flex animate-scroll gap-10 opacity-70 whitespace-nowrap">
             {/* First set of logos */}
-            <div className="flex items-center gap-10 shrink-0">
-              <img src="/images/tm.png" alt="" className="h-10 mix-blend-multiply" />
-              <img src="/images/Capgemini.png" alt="" className="h-10" />
-              <img src="/images/cognizent.png" alt="" className="h-10" />
-              <img src="/images/Glider.png" alt="" className="h-10" />
-              <img src="/images/razorpay.png" alt="" className="h-10" />
-              <img src="/images/LTM.png" alt="" className="h-10" />
+            <div className="flex items-center gap-5 lg:gap-10 shrink-0">
+              <img src="/images/tm.png" alt="" className="h-6 lg:h-10" />
+              <img src="/images/Capgemini.png" alt="" className="h-6 lg:h-10" />
+              <img src="/images/cognizent.png" alt="" className="h-6 lg:h-10" />
+              <img src="/images/Glider.png" alt="" className="h-6 lg:h-10" />
+              <img src="/images/razorpay.png" alt="" className="h-6 lg:h-10" />
+              <img src="/images/LTM.png" alt="" className="h-6 lg:h-10" />
             </div>
             {/* Duplicate set for seamless loop */}
-            <div className="flex items-center gap-10 shrink-0">
-              <img src="/images/tm.png" alt="" className="h-10" />
-              <img src="/images/Capgemini.png" alt="" className="h-10" />
-              <img src="/images/cognizent.png" alt="" className="h-10" />
-              <img src="/images/Glider.png" alt="" className="h-10" />
-              <img src="/images/razorpay.png" alt="" className="h-10" />
-              <img src="/images/LTM.png" alt="" className="h-10" />
+            <div className="flex items-center gap-5 lg:gap-10 shrink-0">
+              <img src="/images/tm.png" alt="" className="h-6 lg:h-10" />
+              <img src="/images/Capgemini.png" alt="" className="h-6 lg:h-10" />
+              <img src="/images/cognizent.png" alt="" className="h-6 lg:h-10" />
+              <img src="/images/Glider.png" alt="" className="h-6 lg:h-10" />
+              <img src="/images/razorpay.png" alt="" className="h-6 lg:h-10" />
+              <img src="/images/LTM.png" alt="" className="h-6 lg:h-10" />
             </div>
             {/* Third set to ensure no gap */}
-            <div className="flex items-center gap-10 shrink-0">
-              <img src="/images/tm.png" alt="" className="h-10" />
-              <img src="/images/Capgemini.png" alt="" className="h-10" />
-              <img src="/images/cognizent.png" alt="" className="h-10" />
-              <img src="/images/Glider.png" alt="" className="h-10" />
-              <img src="/images/razorpay.png" alt="" className="h-10" />
-              <img src="/images/LTM.png" alt="" className="h-10" />
+            <div className="flex items-center gap-5 lg:gap-10 shrink-0">
+              <img src="/images/tm.png" alt="" className="h-6 lg:h-10" />
+              <img src="/images/Capgemini.png" alt="" className="h-6 lg:h-10" />
+              <img src="/images/cognizent.png" alt="" className="h-6 lg:h-10" />
+              <img src="/images/Glider.png" alt="" className="h-6 lg:h-10" />
+              <img src="/images/razorpay.png" alt="" className="h-6 lg:h-10" />
+              <img src="/images/LTM.png" alt="" className="h-6 lg:h-10" />
             </div>
           </div>
         </div>
@@ -221,7 +221,7 @@ export default function Home() {
         }
 
         .animate-scroll {
-          animation: scroll 30s linear infinite;
+          animation: scroll 10s linear infinite;
           will-change: transform;
         }
 
@@ -230,14 +230,14 @@ export default function Home() {
         }
       `}</style>
 
-      <div className="w-full px-32 py-16 flex flex-col gap-10">
+      <div className="w-full px-8 lg:px-32 py-8 lg:py-16 flex flex-col gap-10">
         <div>
-          <h1 className="text-4xl font-medium pb-4">
+          <h1 className="text-3xl lg:text-4xl font-medium pb-4">
             What Makes Our{" "}
             <span className="text-[#2091d0]">Data Science Program</span> Stand
             Out?
           </h1>
-          <p className="text-gray-500 text-base">
+          <p className="text-gray-500 text-sm lg:text-base">
             Gain an unbeatable edge with industry-aligned AR training, 1:1
             mentorship from FAANG experts, and a 100% placement guarantee. Our
             graduates land roles at 2X the industry average speed with hands-on
@@ -252,12 +252,12 @@ export default function Home() {
           >
             <div
               className="flex gap-[1rem] transition-transform duration-500 ease-in-out"
-              style={{ transform: `translateX(-${currentPage * 100}%)` }}
+              style={{ transform: `translateX(-${currentPage * 320}px)` }}
             >
               {features.map((feature) => {
                 return (
                   <div
-                    className="min-w-[calc(33.333%-1rem)] overflow-hidden flex flex-col items-center gap-8 p-6 h-[20rem] rounded-4xl border-2 border-gray-200 hover:border-[#2091d0] transition-all duration-300 cursor-pointer relative after:content-[''] after:absolute after:top-1/2 after:-right-10 after:w-44 after:h-44 after:bg-gray-300 after:rounded-full after:opacity-20 hover:after:scale-200 hover:after:bg-[#2091d0] after:transition-all after:duration-300"
+                    className="min-w-[20rem] overflow-hidden flex flex-col items-center gap-8 p-6 h-[20rem] rounded-4xl border-2 border-gray-200 hover:border-[#2091d0] transition-all duration-300 cursor-pointer relative after:content-[''] after:absolute after:top-1/2 after:-right-10 after:w-44 after:h-44 after:bg-gray-300 after:rounded-full after:opacity-20 hover:after:scale-200 hover:after:bg-[#2091d0] after:transition-all after:duration-300"
                     key={feature.id}
                   >
                     <div className="flex-col items-center">
