@@ -117,7 +117,7 @@ const Testimonials = () => {
     if (isAutoPlaying) {
       interval = setInterval(() => {
         setCurrentIndex((prev) => (prev + 1) % (testimonials.length - 2));
-      }, 5000);
+      }, 1500);
     }
     return () => clearInterval(interval);
   }, [isAutoPlaying, testimonials.length]);
@@ -138,10 +138,10 @@ const Testimonials = () => {
   return (
     <div className="py-16 px-32">
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-semibold pb-4">
+        <h1 className="text-4xl font-medium pb-2">
           <span className="text-[#2091d0]">Student</span> Success Stories
         </h1>
-        <p className="text-gray-500">
+        <p className="text-gray-500 text-base">
           Hear from our graduates about their journey and achievements
         </p>
       </div>
@@ -205,21 +205,6 @@ const Testimonials = () => {
               }`}
             />
           ))}
-        </div>
-        <div className="relative w-full">
-          <button
-            onClick={handlePrevious}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-6 w-12 h-12 rounded-full bg-[#2091d0] shadow-lg flex items-center justify-center hover:bg-[#2091d0] transition-all duration-200 cursor-pointer hover:scale-110 "
-          >
-            <ChevronLeftIcon className="w-6 h-6 text-white" />
-          </button>
-
-          <button
-            onClick={handleNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-6 w-12 h-12 rounded-full bg-[#2091d0] shadow-lg flex items-center justify-center hover:bg-[#2091d0] transition-all duration-200 cursor-pointer hover:scale-110"
-          >
-            <ChevronRightIcon className="w-6 h-6 text-white" />
-          </button>
         </div>
       </div>
     </div>

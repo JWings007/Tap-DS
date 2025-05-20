@@ -172,12 +172,12 @@ function Why() {
   return (
     <div className="overflow-hidden w-full flex flex-col items-center justify-center relative py-16">
       <div className="flex flex-col px-32">
-        <h1 className="text-5xl font-medium pb-4 w-3/4 leading-14">
+        <h1 className="text-4xl font-medium pb-4 w-3/4 leading-14">
           Why
           <span className="text-[#2091d0]"> Data Science? </span>Explosive
           Growth, High Salaries & Unlimited Opportunities
         </h1>
-        <p className="text-gray-500 text-lg w-3/4">
+        <p className="text-gray-500 text-base w-3/4">
           Data Science is the future. It's the key to unlocking the power of
           data and making informed decisions. It's the key to unlocking the
           power of data and making informed decisions.

@@ -257,12 +257,12 @@ const Preview = () => {
   ];
 
   return (
-    <div className="py-16 px-32">
+    <div className="py-16 px-32 overflow-hidden">
       <div className="mb-8">
-        <h1 className="text-4xl font-semibold pb-4">
+        <h1 className="text-4xl font-medium pb-2">
           <span className="text-[#2091d0]">Course</span> Preview
         </h1>
-        <p className="text-gray-500">
+        <p className="text-gray-500 text-base">
           Get a glimpse of what you'll learn in our comprehensive data science
           program
         </p>
@@ -286,7 +286,7 @@ const Preview = () => {
       </div>
 
       <div className="grid grid-cols-2 gap-8">
-        <div className="space-y-4 mb-8">
+        <div className="space-y-4">
           {modules.map((module, moduleIndex) => (
             <div
               key={moduleIndex}
@@ -325,18 +325,18 @@ const Preview = () => {
                 }`}
               >
                 <div className="overflow-hidden">
-                  <div className="p-6 space-y-4">
+                  <div className="p-6 space-y-2">
                     {module.lessons.map((lesson, lessonIndex) => (
                       <div
                         key={lessonIndex}
-                        className="flex items-start gap-4 p-4 rounded-lg hover:bg-gray-50 transition-colors duration-200"
+                        className="flex items-start gap-4 px-4 py-2 rounded-lg hover:bg-gray-50 transition-colors duration-200"
                       >
                         <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 font-medium">
                           {lessonIndex + 1}
                         </div>
                         <div className="flex-1">
                           <div className="flex items-center justify-between mb-2">
-                            <h4 className="font-medium text-gray-800">
+                            <h4 className="font-medium text-sm text-gray-800">
                               {lesson.title}
                             </h4>
                             <span className="text-sm text-gray-500">
@@ -355,14 +355,37 @@ const Preview = () => {
             </div>
           ))}
         </div>
-        <div className="flex w-full justify-center items-center ">
-          <img src="/images/preview.png" alt="curriculum" className="w-[30rem] h-[30rem]" />
+        <div className="flex flex-col gap-10 w-full justify-start items-center relative p-10 rounded-xl">
+          <img
+            src="/svg/blob6.svg"
+            alt=""
+            className="absolute top-[0px] right-0 w-56 h-56 scale-150 z-[1] blob-animate"
+          />
+          <img
+            src="/svg/blob7.svg"
+            alt=""
+            className="absolute top-[10rem] left-0 w-56 h-56 scale-200 -z-[1] blob-animate-3"
+          />
+          <div className="z-[1]">
+            <h1 className="text-4xl font-medium pb-4 z-[2]">
+              From Raw Data to Powerful Insights
+            </h1>
+            <p className="z-[2] text-base">
+              See how our curriculum builds your expertise in statistical
+              analysis, machine learning, and data visualization with real-world
+              projects
+            </p>
+          </div>
+          <div className="flex w-full items-center">
+            <a
+              className="bg-[#2091d0] text-white px-6 py-2 text-sm rounded-full relative overflow-hidden hover-animation-blue"
+              href="/downloads/syllabus.pdf"
+              download
+            >
+              Download Detailed Curriculum
+            </a>
+          </div>
         </div>
-      </div>
-      <div className="flex w-full justify-center items-center">
-        <a className="bg-[#2091d0] text-white px-6 py-3 rounded-full relative overflow-hidden hover-animation-blue" href="/downloads/syllabus.pdf" download>
-          Download Detailed Curriculum
-        </a>
       </div>
     </div>
   );

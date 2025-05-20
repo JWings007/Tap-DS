@@ -2,8 +2,11 @@ import React from "react";
 
 function StillBox() {
   return (
-    <div className="px-32 py-16 rounded-4xl shadow-md">
-      <div className="bg-[#2092d06a] rounded-4xl py-16 flex flex-col justify-between items-center gap-10">
+    <div className="py-16">
+      <div className="bg-[#2092d06a] py-16 flex flex-col justify-between items-center gap-10 relative overflow-hidden">
+        <img src="/svg/blob6.svg" alt="" className="absolute top-0 -left-16 w-56 h-56 rotate-45 scale-125" />
+        <img src="/svg/blob8.svg" alt="" className="absolute top-0 -right-10 rotate-12 w-56 h-56 scale-200" />
+        <img src="/svg/blob9.svg" alt="" className="absolute top-full right-1/2 rotate-12 w-56 h-56 scale-200" />
         <div className="text-center text-black">
           <h2 className="text-4xl font-bold">
             Still have doubts? or need more information?
