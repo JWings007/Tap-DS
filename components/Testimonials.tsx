@@ -136,12 +136,12 @@ const Testimonials = () => {
   };
 
   return (
-    <div className="py-16 px-32">
+    <div className="py-8 lg:py-16 px-8 lg:px-32">
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-medium pb-2">
+        <h1 className="text-3xl lg:text-4xl font-medium pb-2">
           <span className="text-[#2091d0]">Student</span> Success Stories
         </h1>
-        <p className="text-gray-500 text-base">
+        <p className="text-gray-500 text-sm lg:text-base">
           Hear from our graduates about their journey and achievements
         </p>
       </div>
@@ -153,7 +153,7 @@ const Testimonials = () => {
             style={{ transform: `translateX(-${currentIndex * 33.33}%)` }}
           >
             {testimonials.map((t, i) => (
-              <div key={i} className="w-1/3 flex-shrink-0 px-4">
+              <div key={i} className="w-full lg:w-1/3 flex-shrink-0 px-4">
                 <div className="h-full rounded-xl shadow-md p-6 bg-white text-gray-800 space-y-4">
                   <p className="text-lg font-semibold leading-snug">
                     {t.quote}

@@ -1,6 +1,6 @@
 export default function CareerCounsellingForm() {
   return (
-    <div className="mx-auto bg-white p-6 rounded-4xl border-2 border-gray-200">
+    <div className="mx-auto bg-white p-4 lg:p-6 rounded-4xl border-2 border-gray-200">
       <div className="flex flex-col items-center gap-2">
         <img src="/svg/icons8-phone.svg" alt="phone" />
         <h2 className="text-xl font-semibold text-center">
@@ -50,7 +50,7 @@ export default function CareerCounsellingForm() {
         </p>
         <button
           type="submit"
-          className="w-full bg-[#2091d0] text-white py-2 font-semibold rounded-2xl hover:bg-[#2091d0]/80 transition duration-200 cursor-pointer"
+          className="w-full bg-[#2091d0] text-white py-2 rounded-2xl hover:bg-[#2091d0]/80 transition duration-200 cursor-pointer text-sm lg:text-base font-normal lg:font-semibold"
         >
           CALL OUR EXPERTS
         </button>

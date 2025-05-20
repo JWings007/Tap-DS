@@ -8,14 +8,14 @@ import React from "react";
 
 function Extra() {
   return (
-    <div className="px-32 py-16 grid grid-cols-2">
+    <div className="px-8 lg:px-32 py-8 lg:py-16 grid grid-cols-1 gap-10 lg:gap-0 lg:grid-cols-2">
       <div className="flex flex-col gap-8">
         <div className="mb-3">
-          <h1 className="text-4xl font-medium pb-2">
+          <h1 className="text-3xl lg:text-4xl font-medium pb-2">
             Career Services That{" "}
             <span className="text-[#2091d0]">Get You Hired</span>
           </h1>
-          <p className="text-gray-500 text-sm">
+          <p className="text-gray-500 text-sm lg:text-base">
             From interview prep to resume reviews, we equip you with everything
             you need to land your ideal role. Get the skills, strategy, and
             support to confidently pursue and land the job you've been dreaming
@@ -61,8 +61,8 @@ function Extra() {
           <p>Call Us</p>
         </button>
       </div>
-      <div className="grid grid-cols-2 gap-8 relative">
-        <img src="/svg/blob6.svg" alt="" className="absolute top-1/2 -translate-y-1/2 right-1/2 translate-x-1/2 w-56 object-cover -z-1 blob-animate-2" />
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 relative">
+        <img src="/svg/blob6.svg" alt="" className="absolute top-1/2 -translate-y-1/2 right-1/2 translate-x-1/2 w-56 object-cover -z-1 blob-animate-2 hidden lg:block" />
         <div className="grid grid-rows-1 items-center justify-center z-10">
           <div className="flex flex-col gap-4 items-center justify-center border border-gray-200 bg-white px-4 py-8 rounded-4xl shadow-md">
             <img

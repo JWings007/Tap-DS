@@ -257,12 +257,12 @@ const Preview = () => {
   ];
 
   return (
-    <div className="py-16 px-32 overflow-hidden">
+    <div className="py-8 lg:py-16 px-8 lg:px-32 overflow-hidden">
       <div className="mb-8">
-        <h1 className="text-4xl font-medium pb-2">
+        <h1 className="text-3xl lg:text-4xl font-medium pb-2">
           <span className="text-[#2091d0]">Course</span> Preview
         </h1>
-        <p className="text-gray-500 text-base">
+        <p className="text-gray-500 text-sm lg:text-base">
           Get a glimpse of what you'll learn in our comprehensive data science
           program
         </p>
@@ -285,12 +285,12 @@ const Preview = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div className="space-y-4">
           {modules.map((module, moduleIndex) => (
             <div
               key={moduleIndex}
-              className="bg-white rounded-xl border border-gray-100 overflow-hidden"
+              className="bg-white rounded-xl border border-gray-200 overflow-hidden"
             >
               <button
                 onClick={() =>
@@ -302,10 +302,10 @@ const Preview = () => {
               >
                 <div className="flex items-center justify-between w-full">
                   <div className="flex items-center gap-4">
-                    <span className="w-8 h-8 rounded-full bg-[#2091d0] text-white flex items-center justify-center font-semibold">
+                    <span className="min-w-5 min-h-5 lg:min-w-8 lg:min-h-8 rounded-full bg-[#2091d0] text-white flex items-center justify-center font-semibold text-xs lg:text-base">
                       {moduleIndex + 1}
                     </span>
-                    <span className="text-base font-medium text-gray-800">
+                    <span className="text-sm lg:text-base font-medium text-gray-800">
                       {module.title}
                     </span>
                   </div>
@@ -325,25 +325,25 @@ const Preview = () => {
                 }`}
               >
                 <div className="overflow-hidden">
-                  <div className="p-6 space-y-2">
+                  <div className="p-2 lg:p-6 space-y-2">
                     {module.lessons.map((lesson, lessonIndex) => (
                       <div
                         key={lessonIndex}
                         className="flex items-start gap-4 px-4 py-2 rounded-lg hover:bg-gray-50 transition-colors duration-200"
                       >
-                        <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 font-medium">
+                        <div className="w-5 h-5 lg:w-8 lg:h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 font-medium text-xs lg:text-base">
                           {lessonIndex + 1}
                         </div>
                         <div className="flex-1">
                           <div className="flex items-center justify-between mb-2">
-                            <h4 className="font-medium text-sm text-gray-800">
+                            <h4 className="font-medium text-xs lg:text-base text-gray-800">
                               {lesson.title}
                             </h4>
-                            <span className="text-sm text-gray-500">
+                            <span className="text-xs lg:text-base text-gray-500">
                               {lesson.duration}
                             </span>
                           </div>
-                          <p className="text-sm text-gray-600">
+                          <p className="text-xs lg:text-base text-gray-600">
                             {lesson.description}
                           </p>
                         </div>
@@ -355,7 +355,7 @@ const Preview = () => {
             </div>
           ))}
         </div>
-        <div className="flex flex-col gap-10 w-full justify-start items-center relative p-10 rounded-xl">
+        <div className="hidden lg:flex flex-col gap-10 w-full justify-start items-center relative p-10 rounded-xl">
           <img
             src="/svg/blob6.svg"
             alt=""

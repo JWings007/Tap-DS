@@ -144,18 +144,18 @@ export const Skills: React.FC = () => {
   const visibleFeatures = showAll ? features : features.slice(0, 6);
 
   return (
-    <section id="features" className="py-20 bg-white px-32">
+    <section id="features" className="py-8 lg:py-16 bg-white px-8 lg:px-32">
       <div className="px-4 sm:px-6 lg:px-8 flex flex-col gap-8">
         <div className="text-center">
-          <h2 className="text-4xl font-medium mb-4">
+          <h2 className="text-3xl lg:text-4xl font-medium mb-4">
             What You'll <span className="text-[#2091d0]">Learn</span>
           </h2>
-          <p className="max-w-2xl mx-auto text-base text-slate-600">
+          <p className="max-w-2xl mx-auto text-sm lg:text-base text-slate-600">
             Master these in-demand skills and transform your career with our
             comprehensive curriculum
           </p>
         </div>
-        <div className="flex gap-16 w-full justify-center">
+        <div className="flex gap-5 lg:gap-16 w-full justify-center flex-wrap">
           <div className="p-4 border border-slate-200 rounded-xl">
             <h3 className="text-slate-800 text-lg">
               <span className="text-[#2091d0] text-3xl font-bold">6+</span> Projects
