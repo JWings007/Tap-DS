@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from "react";
-import Image from "next/image";
 
 function Tools() {
   const tools = [

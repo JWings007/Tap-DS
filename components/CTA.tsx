@@ -11,7 +11,7 @@ const CTA = () => {
     <div className="fixed bottom-5 lg:bottom-10 right-5 lg:right-10 z-[100] flex flex-col items-end gap-4">
       <button
         className={`group relative px-3 lg:px-5 py-2 lg:py-3 bg-[#2091d0] rounded-full text-white flex items-center gap-2 overflow-hidden transition-all duration-300 ease-in-out cursor-pointer ${
-          expandedButton === "callback" ? "w-[200px]" : "w-[40px] lg:w-[60px]"
+          expandedButton === "callback" ? "lg:w-[220px] w-[200px]" : "w-[40px] lg:w-[60px]"
         }`}
         onMouseEnter={() => setExpandedButton("callback")}
         onMouseLeave={() => setExpandedButton(null)}

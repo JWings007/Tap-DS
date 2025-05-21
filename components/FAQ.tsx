@@ -91,16 +91,41 @@ const faqs = [
 function FAQ() {
   const [expandedIndex, setExpandedIndex] = useState<number>(0);
   const [finalX, setFinalX] = useState<number>(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState<boolean>(true);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
 
   useEffect(() => {
     setFinalX(expandedIndex * 224);
   }, [expandedIndex]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 875);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    let interval: NodeJS.Timeout;
+    if (isAutoPlaying) {
+      interval = setInterval(() => {
+        setExpandedIndex((prev) =>
+          !isMobile ? (prev + 1) % faqs.length : (prev + 1) % faqs.length
+        );
+      }, 2000);
+    }
+    return () => clearInterval(interval);
+  }, [isAutoPlaying, faqs.length, isMobile]);
+
   return (
     <div className="py-8 lg:py-12 px-8 lg:px-32 overflow-hidden">
       <div className="flex flex-col lg:flex-row justify-between gap-4 w-full">
         <div>
-          <h2 className="text-2xl lg:text-4xl font-bold text-black">Frequently</h2>
+          <h2 className="text-2xl lg:text-4xl font-bold text-black">
+            Frequently
+          </h2>
           <h2 className="text-4xl font-bold text-black">
             Asked <span className="text-[#2091d0]">Questions</span>
           </h2>
@@ -112,9 +137,9 @@ function FAQ() {
           </p>
           <div className="flex items-center gap-4">
             <button
-              className={`rounded-full p-2 ${
+              className={`rounded-full p-4 transition-all duration-200 ${
                 expandedIndex === 0
-                  ? "bg-gray-400 cursor-not-allowed"
+                  ? "bg-gray-400 cursor-not-allowed scale-75"
                   : "bg-[#0b3558] cursor-pointer"
               }`}
               disabled={expandedIndex === 0}
@@ -122,6 +147,7 @@ function FAQ() {
               <ChevronLeftIcon
                 className={`w-4 h-4 text-white`}
                 onClick={() => {
+                  setIsAutoPlaying(false);
                   if (expandedIndex !== 0) {
                     setExpandedIndex(expandedIndex - 1);
                   }
@@ -129,17 +155,18 @@ function FAQ() {
               />
             </button>
             <button
-              className={`rounded-full p-2 ${
+              className={`rounded-full p-4 transition-all duration-200 ${
                 expandedIndex === faqs.length - 1
-                  ? "bg-gray-400 cursor-not-allowed"
+                  ? "bg-gray-400 cursor-not-allowed scale-75"
                   : "bg-[#0b3558] cursor-pointer"
               }`}
-              disabled={expandedIndex === faqs.length -1}
+              disabled={expandedIndex === faqs.length - 1}
             >
               <ChevronRightIcon
                 className="w-4 h-4 text-white"
                 onClick={() => {
-                  if (expandedIndex !== faqs.length -1) {
+                  setIsAutoPlaying(false);
+                  if (expandedIndex !== faqs.length - 1) {
                     setExpandedIndex(expandedIndex + 1);
                   }
                 }}
@@ -157,32 +184,35 @@ function FAQ() {
               : ``,
         }}
       >
-        {faqs.map((faq, index) => (
-          <div
-            className={`px-5 py-5 h-80 rounded-4xl flex flex-col justify-end items-center gap-5 cursor-pointer transition-all duration-300 overflow-hidden
-                ${
-                  expandedIndex === index
-                    ? "bg-[#0b3558] min-w-80 text-white"
-                    : "bg-gray-100 min-w-52"
-                }
-                `}
-            key={index}
-            onClick={() => {
-              setExpandedIndex(index);
-            }}
-          >
-            <h1 className="text-xl font-medium">{faq.question}</h1>
-            <p
-              className={`text-sm font-extralight tracking-wide ${
-                expandedIndex === index
-                  ? "block text-white"
-                  : "hidden text-gray-700"
+        {faqs.map((faq, index) => {
+          const isExpanded = expandedIndex === index;
+          return (
+            <div
+              className={`px-5 py-5 min-w-52 h-80 rounded-4xl flex flex-col justify-end items-center gap-5 cursor-pointer transition-all duration-300 overflow-hidden ${
+                isExpanded ? "bg-[#0b3558] min-w-80 text-white" : "bg-gray-100"
               }`}
+              key={index}
+              onClick={() => {
+                setIsAutoPlaying(false);
+                setExpandedIndex(index);
+              }}
             >
-              {faq.answer}
-            </p>
-          </div>
-        ))}
+              <h1 className="text-xl font-medium">{faq.question}</h1>
+
+              <div
+                className={`transition-all duration-500 ease-in-out overflow-hidden ${
+                  isExpanded
+                    ? "max-h-40 opacity-100 mt-2"
+                    : "max-h-0 opacity-0 mt-0"
+                }`}
+              >
+                <p className="text-sm font-extralight tracking-wide text-white">
+                  {faq.answer}
+                </p>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
