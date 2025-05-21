@@ -2,21 +2,13 @@ import React, { useState } from "react";
 import "../app/main.css";
 import {
   CodeBracketIcon,
-  ServerIcon,
-  ChartBarIcon,
   ChartPieIcon,
   SparklesIcon,
   CloudIcon,
   ChatBubbleLeftRightIcon,
   ArrowTrendingUpIcon,
-  CommandLineIcon,
-  BeakerIcon,
   PresentationChartBarIcon,
   CpuChipIcon,
-  ClockIcon,
-  Squares2X2Icon,
-  TableCellsIcon,
-  CpuChipIcon as CpuIcon,
 } from "@heroicons/react/24/outline";
 
 const features = [
@@ -145,7 +137,7 @@ export const Skills: React.FC = () => {
 
   return (
     <section id="features" className="py-8 lg:py-16 bg-white px-8 lg:px-32">
-      <div className="px-4 sm:px-6 lg:px-8 flex flex-col gap-8">
+      <div className="px-0 sm:px-6 lg:px-8 flex flex-col gap-8">
         <div className="text-center">
           <h2 className="text-3xl lg:text-4xl font-medium mb-4">
             What You'll <span className="text-[#2091d0]">Learn</span>

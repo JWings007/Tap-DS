@@ -12,7 +12,6 @@ const useCountUp = (
   suffix: string = ""
 ) => {
   const [count, setCount] = useState(0);
-  const countRef = useRef(0);
   const observerRef = useRef<IntersectionObserver | null>(null);
   const elementRef = useRef<HTMLDivElement>(null);
 
@@ -88,6 +87,7 @@ function Why() {
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const carouselRef = useRef<HTMLDivElement>(null);
   const [cardWidth, setCardWidth] = useState(448); // Default width
+  const [isMobile, setIsMobile] = useState(false);
 
   const cards = [
     {
@@ -124,50 +124,66 @@ function Why() {
     },
   ];
 
-  // Measure actual card width on component mount
+  // useEffect(() => {
+  //   let interval: NodeJS.Timeout;
+  //   if (isAutoPlaying) {
+  //     interval = setInterval(() => {
+  //       setCurrentIndex((prev) => (prev + 1) % cards.length);
+  //     }, 3000);
+  //   }
+  //   return () => clearInterval(interval);
+  // }, [isAutoPlaying, cards.length]);
+
   useEffect(() => {
-    if (carouselRef.current && carouselRef.current.children.length > 0) {
-      const firstCard = carouselRef.current.children[0] as HTMLElement;
-      const actualWidth =
-        firstCard.offsetWidth +
-        parseInt(getComputedStyle(firstCard).marginRight);
-      setCardWidth(actualWidth);
-    }
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 875);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   useEffect(() => {
-    let interval: NodeJS.Timeout;
-    if (isAutoPlaying) {
-      interval = setInterval(() => {
-        setCurrentIndex((prev) => (prev + 1) % cards.length);
-      }, 3000);
+    if (isMobile) {
+      setCardWidth(320);
+    } else {
+      setCardWidth(448);
     }
-    return () => clearInterval(interval);
-  }, [isAutoPlaying, cards.length]);
+  }, [isMobile]);
 
   const handlePrevious = () => {
     setIsAutoPlaying(false);
-    setCurrentIndex((prev) => (prev - 1 + cards.length) % cards.length);
+    if (currentIndex > 0 && !isMobile) {
+      setCurrentIndex(currentIndex - 1);
+    } else if (currentIndex > 0 && isMobile) {
+      setCurrentIndex(currentIndex - 1);
+    }
   };
 
   const handleNext = () => {
     setIsAutoPlaying(false);
-    setCurrentIndex((prev) => (prev + 1) % cards.length);
+    if (currentIndex < cards.length - 3 && !isMobile) {
+      setCurrentIndex(currentIndex + 1);
+    } else if (currentIndex < cards.length - 1 && isMobile) {
+      setCurrentIndex(currentIndex + 1);
+    }
   };
 
   // Create indicators
-  const indicators = cards.map((_, index) => (
-    <button
-      key={index}
-      onClick={() => {
-        setIsAutoPlaying(false);
-        setCurrentIndex(index);
-      }}
-      className={`w-2 h-2 rounded-full mx-1 transition-all duration-300 cursor-pointer hover:bg-[#2091d0] ${
-        currentIndex === index ? "bg-[#2091d0] w-6" : "bg-gray-300"
-      }`}
-    />
-  ));
+  const indicators = Array(isMobile ? cards.length : cards.length - 2)
+    .fill(0)
+    .map((_, index) => (
+      <button
+        key={index}
+        onClick={() => {
+          setIsAutoPlaying(false);
+          setCurrentIndex(index);
+        }}
+        className={`w-2 h-2 rounded-full mx-1 transition-all duration-300 cursor-pointer hover:bg-[#2091d0] ${
+          currentIndex === index ? "bg-[#2091d0] w-6" : "bg-gray-300"
+        }`}
+      />
+    ));
 
   return (
     <div className="overflow-hidden w-full flex flex-col items-center justify-center relative py-5 lg:py-16">
@@ -177,14 +193,38 @@ function Why() {
           <span className="text-[#2091d0]"> Data Science? </span>Explosive
           Growth, High Salaries & Unlimited Opportunities
         </h1>
-        <p className="text-gray-500 text-base lg:w-3/4">
-          Data Science is the future. It's the key to unlocking the power of
-          data and making informed decisions. It's the key to unlocking the
-          power of data and making informed decisions.
-        </p>
+        <div className="flex items-start justify-between flex-col lg:flex-row lg:items-center gap-4 lg:gap-0">
+          <p className="text-gray-500 text-base lg:w-3/4">
+            Data Science is the future. It's the key to unlocking the power of
+            data and making informed decisions. It's the key to unlocking the
+            power of data and making informed decisions.
+          </p>
+          <div className="flex items-center gap-8">
+            <button
+              className={`${
+                currentIndex === 0 ? "bg-gray-300 scale-75" : "bg-[#2091d0]"
+              } text-white p-4  rounded-full transition-all duration-200`}
+              onClick={handlePrevious}
+            >
+              <ChevronLeftIcon className="w-6 h-6" />
+            </button>
+            <button
+              className={`${
+                currentIndex === cards.length - 1 && isMobile
+                  ? "bg-gray-300 scale-75"
+                  : currentIndex === cards.length - 3 && !isMobile
+                  ? "bg-gray-300 scale-75"
+                  : "bg-[#2091d0]"
+              } text-white p-4  rounded-full transition-all duration-200`}
+              onClick={handleNext}
+            >
+              <ChevronRightIcon className="w-6 h-6" />
+            </button>
+          </div>
+        </div>
       </div>
 
-      <div className="relative py-16 px-8 lg:px-32 w-full">
+      <div className="relative py-8 lg:py-16 px-8 lg:px-32 w-full">
         <div className="">
           {/* Carousel container with cards */}
           <div
@@ -194,7 +234,10 @@ function Why() {
           >
             {/* Display cards twice to create a smooth infinite loop effect */}
             {cards.map((card, i) => (
-              <div key={i} className="w-[20rem] lg:w-[28rem] pr-4 flex-shrink-0">
+              <div
+                key={i}
+                className="w-[20rem] lg:w-[28rem] pr-4 flex-shrink-0"
+              >
                 <div
                   className={`relative text-right w-full flex flex-col gap-48 items-start justify-between border rounded-3xl px-10 py-14 group overflow-hidden cursor-pointer shadow-lg ${
                     i === 0

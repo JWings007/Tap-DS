@@ -24,6 +24,9 @@ const Star = ({ filled = true }: { filled?: boolean }) => {
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [cardWidth, setCardWidth] = useState(336); // Default width
+  const [isMobile, setIsMobile] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   const testimonials = [
     {
@@ -116,44 +119,92 @@ const Testimonials = () => {
     let interval: NodeJS.Timeout;
     if (isAutoPlaying) {
       interval = setInterval(() => {
-        setCurrentIndex((prev) => (prev + 1) % (testimonials.length - 2));
+        setCurrentIndex((prev) => !isMobile ? (prev + 1) % (testimonials.length - 2) : (prev + 1) % (testimonials.length));
       }, 1500);
     }
     return () => clearInterval(interval);
-  }, [isAutoPlaying, testimonials.length]);
+  }, [isAutoPlaying, testimonials.length, isMobile]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 875);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) {
+      setCardWidth(336);
+    } else {
+      setCardWidth(432);
+    }
+  }, [isMobile]);
 
   const handlePrevious = () => {
     setIsAutoPlaying(false);
-    setCurrentIndex(
-      (prev) =>
-        (prev - 1 + (testimonials.length - 2)) % (testimonials.length - 2)
-    );
+    if (currentIndex > 0 && !isMobile) {
+      setCurrentIndex(currentIndex - 1);
+    } else if (currentIndex > 0 && isMobile) {
+      setCurrentIndex(currentIndex - 1);
+    }
   };
 
   const handleNext = () => {
     setIsAutoPlaying(false);
-    setCurrentIndex((prev) => (prev + 1) % (testimonials.length - 2));
+    if (currentIndex < testimonials.length - 3 && !isMobile) {
+      setCurrentIndex(currentIndex + 1);
+    } else if (currentIndex < testimonials.length - 1 && isMobile) {
+      setCurrentIndex(currentIndex + 1);
+    }
   };
 
   return (
-    <div className="py-8 lg:py-16 px-8 lg:px-32">
+    <div className="py-8 lg:py-16 px-8 lg:px-32 overflow-hidden">
       <div className="text-center mb-12">
         <h1 className="text-3xl lg:text-4xl font-medium pb-2">
           <span className="text-[#2091d0]">Student</span> Success Stories
         </h1>
-        <p className="text-gray-500 text-sm lg:text-base">
-          Hear from our graduates about their journey and achievements
-        </p>
+        <div>
+          <p className="text-gray-500 text-sm lg:text-base">
+            Hear from our graduates about their journey and achievements
+          </p>
+        </div>
       </div>
 
-      <div className="relative max-w-7xl mx-auto">
-        <div className="overflow-hidden py-2">
+      <div className="relative">
+        <div className="py-2 relative">
+        <div className="hidden lg:flex w-full items-center justify-between gap-8 absolute top-1/2 -translate-y-1/2 left-0 z-10">
+        <button
+          className={`${
+            currentIndex === 0
+              ? "bg-gray-300 scale-0"
+              : "bg-[#2091d0] scale-100"
+          } text-white p-4  rounded-full transition-all duration-400 cursor-pointer`}
+          onClick={handlePrevious}
+        >
+          <ChevronLeftIcon className="w-6 h-6" />
+        </button>
+        <button
+          className={`${
+            currentIndex === testimonials.length - 1 && isMobile
+              ? "bg-gray-300 scale-75"
+              : currentIndex === testimonials.length - 3 && !isMobile
+              ? "bg-gray-300 scale-0"
+              : "bg-[#2091d0] scale-100"
+          } text-white p-4  rounded-full transition-all duration-400 cursor-pointer`}
+          onClick={handleNext}
+        >
+          <ChevronRightIcon className="w-6 h-6" />
+        </button>
+      </div>
           <div
-            className="flex transition-transform duration-500 ease-in-out"
-            style={{ transform: `translateX(-${currentIndex * 33.33}%)` }}
+            className="flex gap-[1rem] transition-transform duration-500 ease-in-out"
+            style={{ transform: `translateX(-${currentIndex * cardWidth}px)` }}
           >
             {testimonials.map((t, i) => (
-              <div key={i} className="w-full lg:w-1/3 flex-shrink-0 px-4">
+              <div key={i} className="lg:w-[26rem] w-[20rem] flex-shrink-0">
                 <div className="h-full rounded-xl shadow-md p-6 bg-white text-gray-800 space-y-4">
                   <p className="text-lg font-semibold leading-snug">
                     {t.quote}
@@ -190,21 +241,47 @@ const Testimonials = () => {
           </div>
         </div>
 
-        <div className="flex justify-center gap-2 mt-8">
-          {[...Array(testimonials.length - 2)].map((_, index) => (
+        <div className="flex justify-center gap-2 mt-8 relative">
+          {Array(isMobile ? testimonials.length : testimonials.length - 2)
+            .fill(0)
+            .map((_, index) => (
+              <button
+                key={index}
+                onClick={() => {
+                  setIsAutoPlaying(false);
+                  setCurrentIndex(index);
+                }}
+                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                  currentIndex === index
+                    ? "bg-[#2091d0] w-8"
+                    : "bg-gray-300 hover:bg-gray-400"
+                }`}
+              />
+            ))}
+          <div className="flex lg:hidden w-full items-center justify-between gap-8 absolute top-1/2 -translate-y-1/2 left-0 z-10">
             <button
-              key={index}
-              onClick={() => {
-                setIsAutoPlaying(false);
-                setCurrentIndex(index);
-              }}
-              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                currentIndex === index
-                  ? "bg-[#2091d0] w-8"
-                  : "bg-gray-300 hover:bg-gray-400"
-              }`}
-            />
-          ))}
+              className={`${
+                currentIndex === 0
+                  ? "bg-gray-300 scale-75"
+                  : "bg-[#2091d0] scale-100"
+              } text-white p-4  rounded-full transition-all duration-400 cursor-pointer`}
+              onClick={handlePrevious}
+            >
+              <ChevronLeftIcon className="w-6 h-6" />
+            </button>
+            <button
+              className={`${
+                currentIndex === testimonials.length - 1 && isMobile
+                  ? "bg-gray-300 scale-75"
+                  : currentIndex === testimonials.length - 3 && !isMobile
+                  ? "bg-gray-300 scale-75"
+                  : "bg-[#2091d0] scale-100"
+              } text-white p-4  rounded-full transition-all duration-400 cursor-pointer`}
+              onClick={handleNext}
+            >
+              <ChevronRightIcon className="w-6 h-6" />
+            </button>
+          </div>
         </div>
       </div>
     </div>

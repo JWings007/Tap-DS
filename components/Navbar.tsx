@@ -1,6 +1,5 @@
 'use client';
-import { MouseEvent, useState } from 'react';
-import Image from 'next/image';
+import { useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import { ArrowUpIcon, ArrowDownIcon, ChevronUpIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
 

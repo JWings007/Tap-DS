@@ -147,3 +147,21 @@
   75% { transform: translateY(-10%) translateX(0%) scale(2) rotate(-270deg); }
 }
 
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-33.333%));
+  }
+}
+
+.animate-scroll {
+  animation: scroll 10s linear infinite;
+  will-change: transform;
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}

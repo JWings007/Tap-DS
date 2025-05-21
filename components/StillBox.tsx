@@ -3,12 +3,12 @@ import React from "react";
 function StillBox() {
   return (
     <div className="py-16">
-      <div className="bg-[#2092d06a] py-16 flex flex-col justify-between items-center gap-10 relative overflow-hidden">
+      <div className="bg-[#2092d06a] lg:py-16 py-8 flex flex-col justify-between items-center gap-5 lg:gap-10 relative overflow-hidden">
         <img src="/svg/blob6.svg" alt="" className="absolute top-0 -left-16 w-42 h-42 rotate-45 lg:w-56 lg:h-56 lg:rotate-45 lg:scale-125" />
         <img src="/svg/blob8.svg" alt="" className="absolute top-0 -right-10 rotate-12 w-42 scale-150 h-42 lg:w-56 lg:h-56 lg:rotate-12 lg:scale-200" />
-        <img src="/svg/blob9.svg" alt="" className="absolute top-full right-1/2 rotate-12 w-56 h-56 scale-200" />
+        <img src="/svg/blob9.svg" alt="" className="absolute top-full right-1/2 rotate-12 w-56 h-56 lg:w-64 lg:h-64 lg:scale-200 scale-150" />
         <div className="text-center text-black z-10">
-          <h2 className="text-2xl lg:text-4xl font-bold">
+          <h2 className="text-2xl lg:text-4xl font-medium">
             Still have doubts? or need more information?
           </h2>
           <p className="text-black text-sm lg:text-base">
