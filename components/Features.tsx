@@ -6,6 +6,7 @@ function Features() {
       id: 1,
       title: "Certified Program",
       icon: "/svg/certificate-svgrepo-com.svg",
+      image: "/images/cardImages/certificate.jpg",
       description:
         "Data Scientist Program completion certificate recognized by industry leaders. Join 10,000+ alumni at top tech companies with our industry-recognized certification.",
     },
@@ -13,6 +14,7 @@ function Features() {
       id: 2,
       title: "AR-Driven Learning",
       icon: "/svg/ar-zone-svgrepo-com.svg",
+      image: "/images/cardImages/AR.jpg",
       description:
         "Core curriculum delivered in live Augmented Reality online classes. Experience immersive learning with our cutting-edge AR technology that makes complex concepts easier to grasp.",
     },
@@ -20,6 +22,7 @@ function Features() {
       id: 3,
       title: "Live AI Sessions",
       icon: "/svg/robot-svgrepo-com.svg",
+      image: "/images/cardImages/ai.jpg",
       description:
         "Interactive sessions on ChatGPT, Generative AI, prompt engineering, and more. Stay ahead of the curve with expert-led discussions on the latest AI trends and technologies.",
     },
@@ -27,6 +30,7 @@ function Features() {
       id: 4,
       title: "Hands-on Projects",
       icon: "/svg/computer-svgrepo-com (1).svg",
+      image: "/images/cardImages/projects.jpg",
       description:
         "Build your portfolio with 3 Capstones and 25+ hands-on industry projects. Apply your skills to real-world problems across various domains and build an impressive portfolio.",
     },
@@ -34,6 +38,7 @@ function Features() {
       id: 5,
       title: "Essential Tools",
       icon: "/svg/tools-svgrepo-com.svg",
+      image: "/images/cardImages/tools.jpg",
       description:
         "Master Python, Tableau, SQL, ChatGPT, OpenAI, DALL·E, and more. Gain practical experience with the most in-demand tools and technologies in the data science field.",
     },
@@ -41,6 +46,7 @@ function Features() {
       id: 6,
       title: "Industry Masterclasses",
       icon: "/svg/building2-svgrepo-com.svg",
+      image: "/images/cardImages/masterclass.jpg",
       description:
         "Learn directly from experts at leading product-based companies. Get insider knowledge and networking opportunities with professionals from top tech organizations.",
     },
@@ -48,6 +54,7 @@ function Features() {
       id: 7,
       title: "Exclusive Events",
       icon: "/svg/event-svgrepo-com.svg",
+      image: "/images/cardImages/events.jpg",
       description:
         "Participate in hackathons and 'ask-me-anything' sessions. Test your skills, collaborate with peers, and get your questions answered by industry professionals.",
     },
@@ -55,6 +62,7 @@ function Features() {
       id: 8,
       title: "Career Services",
       icon: "/svg/services-svgrepo-com.svg",
+      image: "/images/cardImages/career.png",
       description:
         "Get noticed by top hiring companies with dedicated placement assistance. Enjoy 100% placement assistance to help you land your dream job in data science.",
     },
@@ -62,6 +70,7 @@ function Features() {
       id: 9,
       title: "AI-Enabled Learning",
       icon: "/svg/elearning-learning-online-book-computer-svgrepo-com.svg",
+      image: "/images/cardImages/AI.jpg",
       description:
         "Personalized learning path with AI-powered recommendations. Experience seamless learning with adaptive content tailored to your progress and learning style.",
     },
@@ -77,7 +86,11 @@ function Features() {
     let interval: NodeJS.Timeout;
     if (isAutoPlaying) {
       interval = setInterval(() => {
-        setCurrentIndex((prev) => !isMobile ? (prev + 1) % (features.length - 2) : (prev + 1) % (features.length));
+        setCurrentIndex((prev) =>
+          !isMobile
+            ? (prev + 1) % (features.length - 2)
+            : (prev + 1) % features.length
+        );
       }, 1500);
     }
     return () => clearInterval(interval);
@@ -128,11 +141,13 @@ function Features() {
           <div className="flex items-center gap-8">
             <button
               className={`${
-                currentIndex === 0 ? "bg-gray-300 scale-75" : "bg-[#2091d0] scale-100"
+                currentIndex === 0
+                  ? "bg-gray-300 scale-75"
+                  : "bg-[#2091d0] scale-100"
               } text-white p-4  rounded-full transition-all duration-400 cursor-pointer`}
               onClick={handlePrevious}
             >
-              <ChevronLeftIcon className="w-6 h-6" />
+              <ChevronLeftIcon className="w-4 h-4" />
             </button>
             <button
               className={`${
@@ -144,7 +159,7 @@ function Features() {
               } text-white p-4  rounded-full transition-all duration-400 cursor-pointer`}
               onClick={handleNext}
             >
-              <ChevronRightIcon className="w-6 h-6" />
+              <ChevronRightIcon className="w-4 h-4" />
             </button>
           </div>
         </div>
@@ -162,20 +177,31 @@ function Features() {
             {features.map((feature) => {
               return (
                 <div
-                  className="min-w-[20rem] overflow-hidden flex flex-col items-center gap-8 p-6 h-[20rem] rounded-4xl border-2 border-gray-200 hover:border-[#2091d0] transition-all duration-300 cursor-pointer relative after:content-[''] after:absolute after:top-1/2 after:-right-10 after:w-44 after:h-44 after:bg-gray-300 after:rounded-full after:opacity-20 hover:after:scale-200 hover:after:bg-[#2091d0] after:transition-all after:duration-300"
+                  className="min-w-[20rem] overflow-hidden flex flex-col items-center gap-4 rounded-4xl border-2 border-gray-200 hover:border-[#2091d0] transition-all duration-300 cursor-pointer relative after:content-[''] after:absolute after:top-1/2 after:-right-10 after:w-44 after:h-44 after:bg-gray-300 after:rounded-full after:opacity-20 hover:after:scale-200 hover:after:bg-[#2091d0] after:transition-all after:duration-300"
                   key={feature.id}
                 >
-                  <div className="flex-col items-center">
-                    <img src={feature.icon} alt="" className="w-10 h-10 mb-4" />
+                  <div className="z-2 relative w-full">
+                    <div className="h-48 w-full overflow-hidden">
+                      <img
+                        src={feature.image}
+                        alt={feature.title}
+                        className="object-cover w-full h-full"
+                      />
+                    </div>
+                    <div className="absolute -bottom-6 left-3 bg-white rounded-full p-4">
+                      <img src={feature.icon} alt="" className="w-6 h-6" />
+                    </div>
+                  </div>
+                  <div className="flex-col items-center px-6 py-4">
                     <div className="flex flex-col gap-2">
-                      <h3 className="text-2xl font-medium lg:font-bold">{feature.title}</h3>
+                      <h3 className="text-2xl font-medium lg:font-bold">
+                        {feature.title}
+                      </h3>
                       <p className="text-gray-500 tracking-wide text-sm">
                         {feature.description}
                       </p>
                     </div>
                   </div>
-                  <div className="h-[0.1rem] w-3/4 bg-gray-300"></div>
-                  <div></div>
                 </div>
               );
             })}
@@ -188,8 +214,8 @@ function Features() {
               <button
                 key={index}
                 onClick={() => {
-                    setIsAutoPlaying(false)
-                    setCurrentIndex(index)
+                  setIsAutoPlaying(false);
+                  setCurrentIndex(index);
                 }}
                 className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
                   currentIndex === index

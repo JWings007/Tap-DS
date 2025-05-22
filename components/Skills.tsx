@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from "react";
 import "../app/main.css";
 import {
@@ -209,15 +211,17 @@ export const Skills: React.FC = () => {
 
         <div className="mt-8 text-center">
           <button
+            type="button"
             onClick={() => setShowAll(!showAll)}
             className="inline-flex items-center px-6 py-2 border border-transparent text-sm rounded-full cursor-pointer text-white bg-[#2091d0] hover:bg-[#208dd0] focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-300 transform hover:scale-105"
           >
-            {showAll ? 'Show Less' : 'View More'}
+            <span>{showAll ? 'Show Less' : 'View More'}</span>
             <svg
               className={`ml-2 h-5 w-5 transition-transform duration-300 ${showAll ? 'rotate-180' : ''}`}
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
+              aria-hidden="true"
             >
               <path
                 strokeLinecap="round"
