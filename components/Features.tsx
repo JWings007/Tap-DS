@@ -6,7 +6,7 @@ function Features() {
       id: 1,
       title: "Certified Program",
       icon: "/svg/certificate-svgrepo-com.svg",
-      image: "/images/cardImages/certificate.jpg",
+      image: "/images/certificate.jpg",
       description:
         "Data Scientist Program completion certificate recognized by industry leaders. Join 10,000+ alumni at top tech companies with our industry-recognized certification.",
     },
@@ -14,7 +14,7 @@ function Features() {
       id: 2,
       title: "AR-Driven Learning",
       icon: "/svg/ar-zone-svgrepo-com.svg",
-      image: "/images/cardImages/AR.jpg",
+      image: "/images/AR.jpg",
       description:
         "Core curriculum delivered in live Augmented Reality online classes. Experience immersive learning with our cutting-edge AR technology that makes complex concepts easier to grasp.",
     },
@@ -22,7 +22,7 @@ function Features() {
       id: 3,
       title: "Live AI Sessions",
       icon: "/svg/robot-svgrepo-com.svg",
-      image: "/images/cardImages/ai.jpg",
+      image: "/images/ai.jpg",
       description:
         "Interactive sessions on ChatGPT, Generative AI, prompt engineering, and more. Stay ahead of the curve with expert-led discussions on the latest AI trends and technologies.",
     },
@@ -30,7 +30,7 @@ function Features() {
       id: 4,
       title: "Hands-on Projects",
       icon: "/svg/computer-svgrepo-com (1).svg",
-      image: "/images/cardImages/projects.jpg",
+      image: "/images/projects.jpg",
       description:
         "Build your portfolio with 3 Capstones and 25+ hands-on industry projects. Apply your skills to real-world problems across various domains and build an impressive portfolio.",
     },
@@ -38,7 +38,7 @@ function Features() {
       id: 5,
       title: "Essential Tools",
       icon: "/svg/tools-svgrepo-com.svg",
-      image: "/images/cardImages/tools.jpg",
+      image: "/images/tools.jpg",
       description:
         "Master Python, Tableau, SQL, ChatGPT, OpenAI, DALL·E, and more. Gain practical experience with the most in-demand tools and technologies in the data science field.",
     },
@@ -46,7 +46,7 @@ function Features() {
       id: 6,
       title: "Industry Masterclasses",
       icon: "/svg/building2-svgrepo-com.svg",
-      image: "/images/cardImages/masterclass.jpg",
+      image: "/images/masterclass.jpg",
       description:
         "Learn directly from experts at leading product-based companies. Get insider knowledge and networking opportunities with professionals from top tech organizations.",
     },
@@ -54,7 +54,7 @@ function Features() {
       id: 7,
       title: "Exclusive Events",
       icon: "/svg/event-svgrepo-com.svg",
-      image: "/images/cardImages/events.jpg",
+      image: "/images/events.jpg",
       description:
         "Participate in hackathons and 'ask-me-anything' sessions. Test your skills, collaborate with peers, and get your questions answered by industry professionals.",
     },
@@ -62,7 +62,7 @@ function Features() {
       id: 8,
       title: "Career Services",
       icon: "/svg/services-svgrepo-com.svg",
-      image: "/images/cardImages/career.png",
+      image: "/images/career.png",
       description:
         "Get noticed by top hiring companies with dedicated placement assistance. Enjoy 100% placement assistance to help you land your dream job in data science.",
     },
@@ -70,7 +70,7 @@ function Features() {
       id: 9,
       title: "AI-Enabled Learning",
       icon: "/svg/elearning-learning-online-book-computer-svgrepo-com.svg",
-      image: "/images/cardImages/AI.jpg",
+      image: "/images/AI.jpg",
       description:
         "Personalized learning path with AI-powered recommendations. Experience seamless learning with adaptive content tailored to your progress and learning style.",
     },
