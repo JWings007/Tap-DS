@@ -70,7 +70,7 @@ function Features() {
       id: 9,
       title: "AI-Enabled Learning",
       icon: "/svg/elearning-learning-online-book-computer-svgrepo-com.svg",
-      image: "/images/AI.jpg",
+      image: "/images/ai.jpg",
       description:
         "Personalized learning path with AI-powered recommendations. Experience seamless learning with adaptive content tailored to your progress and learning style.",
     },
