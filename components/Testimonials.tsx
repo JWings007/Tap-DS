@@ -184,7 +184,7 @@ const Testimonials = () => {
           } text-white p-4  rounded-full transition-all duration-400 cursor-pointer`}
           onClick={handlePrevious}
         >
-          <ChevronLeftIcon className="w-6 h-6" />
+          <ChevronLeftIcon className="w-4 h-4" />
         </button>
         <button
           className={`${
@@ -196,7 +196,7 @@ const Testimonials = () => {
           } text-white p-4  rounded-full transition-all duration-400 cursor-pointer`}
           onClick={handleNext}
         >
-          <ChevronRightIcon className="w-6 h-6" />
+          <ChevronRightIcon className="w-4 h-4" />
         </button>
       </div>
           <div
